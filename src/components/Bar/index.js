@@ -9,30 +9,30 @@ const VALUE_SCALE_SPRING_FRICTION = 5
 
 export default class Bar extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      valueScale: new Animated.Value(INITIAL_VALUE_SCALE),
+      valueScale: new Animated.Value(INITIAL_VALUE_SCALE)
     }
   }
 
   componentDidMount() {
-    this.animateValueScale()
+    this.animateValueScale();
   }
 
   componentWillUpdate() {
-    this.animateValueScale()
+    this.animateValueScale();
   }
 
   animateValueScale() {
     // Reset value scale
-    this.state.valueScale.setValue(INITIAL_VALUE_SCALE)
+    this.state.valueScale.setValue(INITIAL_VALUE_SCALE);
 
     // Apply spring animation to value scale to its destination value
     Animated.spring(this.state.valueScale, {
       friction: VALUE_SCALE_SPRING_FRICTION,
       toValue: DESTINATION_VALUE_SCALE,
-    }).start()
+    }).start();
   }
 
   getStyles() {
@@ -49,7 +49,7 @@ export default class Bar extends React.Component {
       maxValue,
       value,
       valueScale: this.state.valueScale,
-    })
+    });
   }
 
   render() {
